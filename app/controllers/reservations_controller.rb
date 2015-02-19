@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   end
   
   def new
-    flash[:notice] = "Today is: #{Time.now.to_date} (#{Time.now.to_date.strftime('%d %b %Y')})"
+    flash.now[:notice] = "Today is: #{Time.now.to_date} (#{Time.now.to_date.strftime('%d %b %Y')})"
   end
   
   def create
