@@ -1,6 +1,22 @@
 <div class='form-group'>
   <strong>Hey, this is Reservation app</strong>
 </div>
+<table class="table table-hover">
+	<tr>
+		<td><strong>ID</strong></td>
+		<td><strong>Table number</strong></td>
+		<td><strong>Reservation time</strong></td>
+		<td><strong>End of the reservation</strong></td>
+	</tr>
+	<% @reservations.each do |reservation| %>
+		<tr>
+			<td><%= link_to reservation_path(id: reservation.id) do %><%= reservation.id %><% end %></td>
+			<td><%= reservation.table_number %></td>
+			<td><%= reservation.start_time.strftime('%d %b %Y %H:%M') %></td>
+			<td><%= reservation.end_time.strftime('%d %b %Y %H:%M') %></td>
+		</tr>
+	<% end %>
+</table>
 <p>
   <%= link_to "Reserve a table", new_reservation_path, class:'btn btn-success' %>
 </p>

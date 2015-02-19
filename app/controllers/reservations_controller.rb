@@ -1,9 +1,10 @@
 class ReservationsController < ApplicationController
   
    before_filter :find_reservation, only: [:show, :update, :destroy]
-   attr_accessor :reservation
+   attr_accessor :reservation, :reservations
  
-  def index 
+  def index
+    self.reservations = Reservation.all.order('start_time desc') 
   end
   
   def new
