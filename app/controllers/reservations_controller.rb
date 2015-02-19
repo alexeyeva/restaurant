@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
   end
   
   def new
+    flash[:notice] = "Today is: #{Time.now.to_date} (#{Time.now.to_date.strftime('%d %b %Y')})"
   end
   
   def create
@@ -15,12 +16,15 @@ class ReservationsController < ApplicationController
     if reservation.table_number.nil? || reservation.start_time.nil? || reservation.end_time.nil?
       flash[:error] = "Fields can't be empty"
       render :new
+    elsif reservation.start_time.to_date < Time.now.to_date
+      flash[:error] = "Sorry, you missed some days"
+      render :new
     else
       if reservation.valid?
         reservation.save
         redirect_to reservation_path(reservation)
       else
-        flash[:error] = "Sorry, this table is reserved"
+        flash[:error] = "Sorry, #{reservation.errors.messages[:base].join(", ")}"
         render :new
       end
     end
