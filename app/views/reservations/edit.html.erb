@@ -1,0 +1,21 @@
+<%= form_for :reservation do |f| %>
+  <div class="form-group">
+    <%= f.label(:table_number, "Table number: ") %>
+    <%= f.text_field :table_number, class:'form-control', placeholder:'Table number' %>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label(:start_time, "Date and time of reservation") %>
+    <%= f.date_field :start_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label(:end_time, "Expected end date and time of reservation") %><br>
+    <%= f.date_field :end_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %>
+  </div>
+ 
+  <p>
+    <%= f.button("Save", type:'submit', method: :update, controller: 'reservations', class:'btn btn-success') %>
+  </p>
+<% end %>
+	<%= link_to("Cancel", reservation_path(id: params[:id]), class:'btn btn-danger') %>

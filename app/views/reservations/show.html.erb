@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label>Your reservation id: </label>
+    <label class="form-control"><%= @reservation.id %></label>
+</div>
+<div class="form-group">
+    <label>Your table number: </label>
+    <label class="form-control"><%= @reservation.table_number %></label>
+</div>
+<div class="form-group">
+    <label>Your reservation time: </label>
+	<label class="form-control"><%= @reservation.start_time.strftime('%d %b %Y %H:%M') %> - <%= @reservation.end_time.strftime('%d %b %Y %H:%M') %></label>
+</div>
+
+<%= link_to "Edit", edit_reservation_path, class:"btn btn-info" %>
+<%= link_to "Delete", @reservation, method: :delete, controller: "reservations", class:"btn btn-danger" %>
