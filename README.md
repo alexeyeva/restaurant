@@ -10,14 +10,14 @@
 	* ../user$ createdb databasename
 	
 + Database initialization
-	*In database.yml file use your name of database and your login and password
-	*Run: rake db:migrate
+	* In database.yml file use your name of database and your login and password
+	* Run: rake db:migrate
 	
 	
-	+ How to run the test suite
-		*../user$ rake test
-		*../user$ rake spec
++ How to run the test suite
+	* ../user$ rake test
+	* ../user$ rake spec
 
-	+ Deployment instructions
-		*../user$ rake assets:precompile RAILS_ENV=production		 before deployment
++ Deployment instructions
+	* ../user$ rake assets:precompile RAILS_ENV=production		 before deployment
 
