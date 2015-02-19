@@ -17,7 +17,7 @@ gem 'figaro'
 gem 'unicorn', require: false
 gem 'puma', require: false
 
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.3.3'
 
 group :development do
   gem 'foreman', require: false
