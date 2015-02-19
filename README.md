@@ -1,8 +1,6 @@
 * Ruby version: 2.0.0
 * Rails 4.0.1
 
-* System dependencies
-
 * Configuration
 	Database using: PostgreSQL 9.3.5
 	Run: bundle install
