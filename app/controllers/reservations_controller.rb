@@ -13,17 +13,12 @@ class ReservationsController < ApplicationController
   
   def create
     self.reservation = Reservation.new(reservation_params)
-    if reservation.table_number.nil? || reservation.start_time.nil? || reservation.end_time.nil?
-      flash[:error] = "Fields can't be empty"
-      render :new
+    if reservation.save
+      flash[:notice] = "Successfully saved"
+      redirect_to reservation_path(reservation)
     else
-      if reservation.save
-        flash[:notice] = "Successfully saved"
-        redirect_to reservation_path(reservation)
-      else
-        flash[:error] = "Sorry, #{reservation.errors.messages[:base].join(", ")}"
-        render :new
-      end
+      flash[:error] = "Sorry, #{reservation.errors.messages[:base].join(", ")}"
+      render :new
     end
   end
   
