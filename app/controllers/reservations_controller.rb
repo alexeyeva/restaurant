@@ -16,12 +16,8 @@ class ReservationsController < ApplicationController
     if reservation.table_number.nil? || reservation.start_time.nil? || reservation.end_time.nil?
       flash[:error] = "Fields can't be empty"
       render :new
-    elsif reservation.start_time.to_date < Time.now.to_date
-      flash[:error] = "Sorry, you missed some days"
-      render :new
     else
-      if reservation.valid?
-        reservation.save
+      if reservation.save
         redirect_to reservation_path(reservation)
       else
         flash[:error] = "Sorry, #{reservation.errors.messages[:base].join(", ")}"

@@ -9,6 +9,8 @@ class TableValidator < ActiveModel::Validator
           record.errors[:base] << "this table is reserved"
         elsif record.end_time <= r.end_time && record.end_time >= r.start_time
           record.errors[:base] << "this table is reserved"
+        elsif r.start_time >= record.start_time && r.start_time <= record.end_time
+          record.errors[:base] << "this table is reserved"
         end
       end
     end
