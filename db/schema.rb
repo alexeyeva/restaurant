@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217155549) do
+ActiveRecord::Schema.define(version: 20150222173641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reservations", force: true do |t|
     t.integer  "table_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

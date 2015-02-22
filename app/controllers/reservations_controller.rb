@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
       render :new
     else
       if reservation.save
+        flash[:notice] = "Successfully saved"
         redirect_to reservation_path(reservation)
       else
         flash[:error] = "Sorry, #{reservation.errors.messages[:base].join(", ")}"
