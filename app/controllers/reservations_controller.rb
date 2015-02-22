@@ -42,7 +42,7 @@ class ReservationsController < ApplicationController
   def destroy
     reservation.destroy
     flash[:notice] = "Reservation successfully deleted"
-    render :index
+    redirect_to reservatons_path
   end
   
   private
