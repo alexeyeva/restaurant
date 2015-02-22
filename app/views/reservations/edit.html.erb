@@ -15,7 +15,8 @@
   </div>
  
   <p>
+  	<%= link_to("Cancel", reservation_path(id: params[:id]), class:'btn btn-danger') %>
     <%= f.button("Save", type:'submit', method: :update, controller: 'reservations', class:'btn btn-success') %>
   </p>
 <% end %>
-	<%= link_to("Cancel", reservation_path(id: params[:id]), class:'btn btn-danger') %>
+	
