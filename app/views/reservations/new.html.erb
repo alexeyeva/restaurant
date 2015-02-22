@@ -5,13 +5,15 @@
   </div>
   
   <div class="form-group">
-    <%= f.label(:start_time, "Date and time of reservation") %>
-    <%= f.datetime_field :start_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %>
+    <%= f.label(:start_time, "Date and time of reservation") %><br>
+    <!-- <%= f.datetime_field :start_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %> -->
+    <%= datetime_select("reservation", "start_time") %>
   </div>
   
   <div class="form-group">
     <%= f.label(:end_time, "Expected end date and time of reservation") %><br>
-    <%= f.datetime_field :end_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %>
+    <!-- <%= f.datetime_field :end_time, class:'form-control', placeholder:'YYYY-MM-DD HH:MM:SS' %> -->
+    <%= datetime_select("reservation", "end_time") %>
   </div>
  
   <p>
