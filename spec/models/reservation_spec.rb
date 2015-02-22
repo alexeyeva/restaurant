@@ -85,7 +85,7 @@ describe Reservation do
     context "when valid" do
       let(:reserv) { FactoryGirl.build(:reservation, table_number: 2, start_time: "15-02-18 15:00:00", end_time: "15-02-18 16:00:00") }
       let(:reserv1) { FactoryGirl.build(:reservation, table_number: 2, start_time: "15-02-18 16:30:00", end_time: "15-02-18 16:55:00") }
-      let(:update) { {table_number: 2, start_time: "15-02-18 17:00:00", end_time: "15-02-18 18:00:00"} }
+      let(:update) { {table_number: 2, start_time: "15-02-19 17:00:00", end_time: "15-02-19 18:00:00"} }
       it "should update" do
         reserv.should be_valid
         reserv.save!
@@ -93,8 +93,7 @@ describe Reservation do
         reserv1.should be_valid
         reserv1.save!
         reserv1.reload
-        reserv.update_attributes(update)
-        reserv.should be_valid
+        reserv.update_attributes!(update)
       end
     end
     
